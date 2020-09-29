@@ -583,7 +583,7 @@ func (c *Client) do(ctx context.Context, req *retryablehttp.Request, v interface
 	println(a)
 	//if a != reflect.Zero() {
 	//	println("inside before")
-	//	statusCounts.Set(reflect.ValueOf(&m.StatusCounts))
+	statusCounts.Set(reflect.ValueOf(&m.StatusCounts))
 	//	println("inside after")
 	//}
 	println("outside after")
