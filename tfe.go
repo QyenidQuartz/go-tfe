@@ -579,8 +579,8 @@ func (c *Client) do(ctx context.Context, req *retryablehttp.Request, v interface
 	// In case an endpoint doesn't return StatusCounts, let's check
 	println("outside before")
 	println("&m.StatusCounts")
-	println(m.StatusCounts)
-	if &m.StatusCounts != new(StatusCounts) {
+	a := reflect.ValueOf(&m.StatusCounts)
+	if a != reflect.Zero(StatusCounts) {
 		println("inside before")
 		statusCounts.Set(reflect.ValueOf(&m.StatusCounts))
 		println("inside after")
