@@ -661,7 +661,7 @@ func parseMeta(body io.Reader) (*Meta, error) {
 	}
 
 	m.Pagination = raw.Meta.Pagination
-	fmt.Printf("%+v\n",raw.Meta.Pagination)
+	fmt.Printf("%+v\n",raw.Meta.StatusCounts)
 	m.StatusCounts = raw.Meta.StatusCounts
 
 	return m, nil
