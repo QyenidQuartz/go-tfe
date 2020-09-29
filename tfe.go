@@ -577,9 +577,15 @@ func (c *Client) do(ctx context.Context, req *retryablehttp.Request, v interface
 	// Pointer-swap the decoded pagination details.
 	pagination.Set(reflect.ValueOf(&m.Pagination))
 	// In case an endpoint doesn't return StatusCounts, let's check
+	println("outside before")
+	println("&m.StatusCounts")
+	println(&m.StatusCounts)
 	if &m.StatusCounts != new(StatusCounts) {
+		println("inside before")
 		statusCounts.Set(reflect.ValueOf(&m.StatusCounts))
+		println("inside after")
 	}
+	println("outside after")
 
 	return nil
 }
