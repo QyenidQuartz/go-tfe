@@ -579,6 +579,7 @@ func (c *Client) do(ctx context.Context, req *retryablehttp.Request, v interface
 	// In case an endpoint doesn't return StatusCounts, let's check
 	println("outside before")
 	println("&m.StatusCounts")
+
 	//if a != reflect.Zero() {
 	//	println("inside before")
 	statusCounts.Set(reflect.ValueOf(&m.StatusCounts))
@@ -660,7 +661,7 @@ func parseMeta(body io.Reader) (*Meta, error) {
 	}
 
 	m.Pagination = raw.Meta.Pagination
-	print(raw.Meta.StatusCounts)
+	fmt.Printf("%+v\n",raw.Meta.Pagination)
 	m.StatusCounts = raw.Meta.StatusCounts
 
 	return m, nil
