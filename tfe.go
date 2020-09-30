@@ -19,7 +19,7 @@ import (
 	"github.com/google/go-querystring/query"
 	"github.com/hashicorp/go-cleanhttp"
 	retryablehttp "github.com/hashicorp/go-retryablehttp"
-	"github.com/svanharmelen/jsonapi"
+	"github.com/google/jsonapi"
 	"golang.org/x/time/rate"
 )
 
@@ -583,6 +583,8 @@ func (c *Client) do(ctx context.Context, req *retryablehttp.Request, v interface
 	//if a != reflect.Zero() {
 	//	println("inside before")
 	fmt.Printf("%+v\n", m.StatusCounts)
+	statusCounts.Set(reflect.ValueOf(*m.StatusCounts))
+	statusCounts.Set(reflect.ValueOf(&m.StatusCounts))
 	statusCounts.Set(reflect.ValueOf(m.StatusCounts))
 	//	println("inside after")
 	//}
